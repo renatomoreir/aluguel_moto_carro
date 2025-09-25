@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mottu.API</name>
+    </assembly>
+    <members>
+        <member name="T:Mottu.API.Controllers.EntregadoresController">
+            <summary>
+            Controller responsável pelo gerenciamento de entregadores
+            </summary>
+        </member>
+        <member name="M:Mottu.API.Controllers.EntregadoresController.CadastrarEntregador(Mottu.Application.DTOs.CriarEntregadorDto)">
+            <summary>
+            Cadastrar entregador
+            </summary>
+            <param name="criarEntregadorDto">Dados do entregador a ser cadastrado</param>
+            <returns>Entregador cadastrado</returns>
+        </member>
+        <member name="M:Mottu.API.Controllers.EntregadoresController.ConsultarEntregadorPorId(System.String)">
+            <summary>
+            Consultar entregador por ID
+            </summary>
+            <param name="id">Identificador do entregador</param>
+            <returns>Entregador encontrado</returns>
+        </member>
+        <member name="M:Mottu.API.Controllers.EntregadoresController.EnviarFotoCnh(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Enviar foto da CNH
+            </summary>
+            <param name="id">Identificador do entregador</param>
+            <param name="arquivo">Arquivo de imagem da CNH</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="T:Mottu.API.Controllers.LocacaoController">
+            <summary>
+            Controller responsável pelo gerenciamento de locações de motos
+            </summary>
+        </member>
+        <member name="M:Mottu.API.Controllers.LocacaoController.AlugarMoto(Mottu.Application.DTOs.CriarLocacaoDto)">
+            <summary>
+            Alugar uma moto
+            </summary>
+            <param name="criarLocacaoDto">Dados da locação a ser criada</param>
+            <returns>Locação criada</returns>
+        </member>
+        <member name="M:Mottu.API.Controllers.LocacaoController.ConsultarLocacaoPorId(System.String)">
+            <summary>
+            Consultar locação por ID
+            </summary>
+            <param name="id">Identificador da locação</param>
+            <returns>Locação encontrada</returns>
+        </member>
+        <member name="M:Mottu.API.Controllers.LocacaoController.InformarDevolucao(System.String,Mottu.Application.DTOs.DevolucaoDto)">
+            <summary>
+            Informar data de devolução e calcular valor
+            </summary>
+            <param name="id">Identificador da locação</param>
+            <param name="devolucaoDto">Data de devolução</param>
+            <returns>Cálculo do valor total da locação</returns>
+        </member>
+        <member name="T:Mottu.API.Controllers.MotosController">
+            <summary>
+            Controller responsável pelo gerenciamento de motos
+            </summary>
+        </member>
+        <member name="M:Mottu.API.Controllers.MotosController.CadastrarMoto(Mottu.Application.DTOs.CriarMotoDto)">
+            <summary>
+            Cadastrar uma nova moto
+            </summary>
+            <param name="criarMotoDto">Dados da moto a ser cadastrada</param>
+            <returns>Dados da moto cadastrada</returns>
+            <response code="201">Moto cadastrada com sucesso</response>
+            <response code="400">Dados inválidos ou placa já existe</response>
+            <response code="500">Erro interno do servidor</response>
+        </member>
+        <member name="M:Mottu.API.Controllers.MotosController.ConsultarMotos(System.String)">
+            <summary>
+            Consultar motos cadastradas
+            </summary>
+            <param name="placa">Filtro opcional por placa</param>
+            <returns>Lista de motos</returns>
+            <response code="200">Lista de motos retornada com sucesso</response>
+            <response code="500">Erro interno do servidor</response>
+        </member>
+        <member name="M:Mottu.API.Controllers.MotosController.ConsultarMotoPorId(System.String)">
+            <summary>
+            Consultar moto por identificador
+            </summary>
+            <param name="id">Identificador da moto</param>
+            <returns>Dados da moto</returns>
+            <response code="200">Moto encontrada</response>
+            <response code="404">Moto não encontrada</response>
+            <response code="500">Erro interno do servidor</response>
+        </member>
+        <member name="M:Mottu.API.Controllers.MotosController.AtualizarPlaca(System.String,Mottu.Application.DTOs.AtualizarPlacaMotoDto)">
+            <summary>
+            Modificar a placa de uma moto
+            </summary>
+            <param name="id">Identificador da moto</param>
+            <param name="atualizarPlacaDto">Nova placa da moto</param>
+            <returns>Dados da moto atualizada</returns>
+            <response code="200">Placa atualizada com sucesso</response>
+            <response code="400">Dados inválidos ou placa já existe</response>
+            <response code="404">Moto não encontrada</response>
+            <response code="500">Erro interno do servidor</response>
+        </member>
+        <member name="M:Mottu.API.Controllers.MotosController.RemoverMoto(System.String)">
+            <summary>
+            Remover uma moto
+            </summary>
+            <param name="id">Identificador da moto</param>
+            <returns>Resultado da operação</returns>
+            <response code="204">Moto removida com sucesso</response>
+            <response code="400">Moto possui locações e não pode ser removida</response>
+            <response code="404">Moto não encontrada</response>
+            <response code="500">Erro interno do servidor</response>
+        </member>
+    </members>
+</doc>
